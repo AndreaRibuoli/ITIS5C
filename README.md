@@ -9,7 +9,7 @@ DBMSs provide (through **SQL**) a high\-level **declarative** language interface
 
 Originally, SQL was called **SEQUEL**: for **S**tructured **E**nglish **QUE**ry **L**anguage.
 
-(from FUNDAMENTALS OF DATABASE SYSTEMS, Elmasri-Navathe)
+(from *FUNDAMENTALS OF DATABASE SYSTEMS*, Elmasri-Navathe)
 
 
 
