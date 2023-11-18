@@ -11,6 +11,26 @@ Originally, SQL was called **SEQUEL**: for **S**tructured **E**nglish **QUE**ry 
 
 (from *FUNDAMENTALS OF DATABASE SYSTEMS*, Elmasri-Navathe)
 
+### Accesso MySQL
 
+L'indirizzop IP del *DBMS server* è `10.25.0.14`
+
+Sulle macchine Linux è installato il client **mysql** pertanto si può accedere alla console
+
+```
+mysql -h 10.25.0.14 -u <nome_utente_assegnato> -p
+```
+
+La password verrà richiesta interattivamente.
+
+`CREATE DATABASE <nome_utente_assegnato>_test`
+
+`USE <nome_utente_assegnato>_test`
+
+A questo punto si può procedere con la serie di comandi *DDL*.
+
+* **DDL** = *Data Definition Language* (`CREATE`, `ALTER`, `DROP`, ...) 
+* **DML** = *Data Manipulation Language* (`INSERT`, `UPDATE`, `DELETE`, ...) e 
+            *Data Query Language* (`SELECT`) 
 
 
