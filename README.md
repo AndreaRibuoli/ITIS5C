@@ -13,7 +13,7 @@ Originally, SQL was called **SEQUEL**: for **S**tructured **E**nglish **QUE**ry 
 
 ### Accesso MySQL
 
-L'indirizzop IP del *DBMS server* è `10.25.0.14`
+L'indirizzo IP del *DBMS server* è `10.25.0.14`
 
 Sulle macchine Linux è installato il client **mysql** pertanto si può accedere alla console
 
