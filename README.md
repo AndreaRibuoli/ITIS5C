@@ -38,6 +38,8 @@ A questo punto si può procedere con la serie di comandi *DDL*.
 
 ![](A140.png)
 
+Trascurando per il momento la specificazione `NOT NULL` abbiamo quale esempio i seguenti *statement DDL*:
+
 ``` sql
 CREATE TABLE "Categorie" (
   "id_categoria" INTEGER PRIMARY KEY,
@@ -99,3 +101,13 @@ ALTER TABLE "Dettaglio_Ordini" ADD FOREIGN KEY ("id_ordine") REFERENCES "Ordini"
 
 ALTER TABLE "Dettaglio_Ordini" ADD FOREIGN KEY ("id_prodotto") REFERENCES "Prodotti" ("id_prodotto");
 ```
+
+### NON NULL
+
+Sicuramente è opportuno che tutte le colonne che compongo *chiavi primarie* siano impostate a `NOT NULL`. Alcuni database lo impongono direttamente.
+
+Tutte le colonne di una *foreign key* devono essere coerenti alle rispettive chiavi primarie per cui, fatta salva la precedente affermazione, è bene siano impostate a `NOT NULL`.
+
+Per approfondire: *SQL Antipatterns: Avoiding the Pitfalls of Database Programming* di Bill Karwin
+
+Per la logica trivalente ed SQL consultare [Wikipedia](https://en.wikipedia.org/wiki/Three-valued_logic)
