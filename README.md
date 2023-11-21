@@ -111,3 +111,19 @@ Tutte le colonne di una *foreign key* devono essere coerenti alle rispettive chi
 Per approfondire: *SQL Antipatterns: Avoiding the Pitfalls of Database Programming* di Bill Karwin
 
 Per la logica trivalente ed SQL consultare [Wikipedia](https://en.wikipedia.org/wiki/Three-valued_logic)
+
+### SQL: interrogazione delle basi di dati
+
+L'**Algebra Relazionale** è il fondamento teorico per la gesstione dei database relazionali.
+L'**SQL** ne è una estensione semplificata (almeno nelle intenzioni!).
+Il nome deriva, come già detto, dalla contrazione di **SEQUEL** (**S**tructured **E**nglish **QUE**ry **L**anguage). 
+Tuttavia l'SQL si è confrontato con esigenze pratiche di implementazione ed uso.
+
+La prima è la scelta di non implementare rigorosamente il principio dell'algebra relazionale 
+che esclude i duplicati (le tuple identiche non possono esistere nell'algebra relazionale).
+Per far si che una **SELECT** risponda a tale principio occorre imporre la clausola **DISTINCT** (è un vincolo *costoso* perchè sottintende l'ordinamento).
+
+Gli altri due aspetti rigurdano l'uso:
+
+* l'algebra relazionale è **procedurale**, l'SQL è **dichiarativo** (provvede il DBMS ad ottimizzare il processo per ottenere il risultato nel modo più efficiente e veloce)
+* l'SQL offre degli operatori aggregati (COUNT, MIN, MAX, AVG, ecc) che non esistono nell'algebra relazionale ma sono utili nella elaborazione dei dati. 
