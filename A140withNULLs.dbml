@@ -1,0 +1,63 @@
+Table "Categorie" {
+  "id_categoria" INTEGER [pk, not null]
+  "descrizione" VARCHAR(50) [not null]
+}
+
+Table "Prodotti" {
+  "id_prodotto" INTEGER [pk, not null]
+  "nome_prodotto" VARCHAR(15) [not null]
+  "id_categoria" INTEGER [not null]
+  "prezzo_acquisto" DECIMAL(9,2)
+  "prezzo_vendita" DECIMAL(9,2)
+  "giacenza" INTEGER
+  "id_fornitore" INTEGER [not null]
+}
+
+Table "Fornitori" {
+  "id_fornitore" INTEGER [pk, not null]
+  "ragione sociale" VARCHAR(50) [not null]
+  "indirizzo" VARCHAR(30)
+  "citta" VARCHAR(20)
+  "cap" VARCHAR(5)
+  "provincia" VARCHAR(2)
+  "n_telefono" VARCHAR(15)
+}
+
+Table "Ordini" {
+  "id_ordine" INTEGER [pk, not null]
+  "data_ricezione" DATE [not null]
+  "data_evasione" DATE
+  "id_cliente" INTEGER [not null]
+  "spese_trasporto" DECIMAL(9,2)
+}
+
+Table "Clienti" {
+  "id_cliente" INTEGER [pk, not null]
+  "ragione sociale" VARCHAR(50) [not null]
+  "indirizzo" VARCHAR(30)
+  "citta" VARCHAR(20)
+  "cap" VARCHAR(5)
+  "provincia" VARCHAR(2)
+  "n_telefono" VARCHAR(15)
+}
+
+Table "Dettaglio_Ordini" {
+  "id_ordine" INTEGER [not null]
+  "id_prodotto" INTEGER [not null]
+  "quantita" INTEGER [not null]
+
+Indexes {
+  (id_ordine, id_prodotto) [pk]
+}
+}
+
+Ref:"Categorie"."id_categoria" < "Prodotti"."id_categoria"
+
+Ref:"Fornitori"."id_fornitore" < "Prodotti"."id_fornitore"
+
+Ref:"Clienti"."id_cliente" < "Ordini"."id_cliente"
+
+Ref:"Ordini"."id_ordine" < "Dettaglio_Ordini"."id_ordine"
+
+Ref:"Prodotti"."id_prodotto" < "Dettaglio_Ordini"."id_prodotto"
+

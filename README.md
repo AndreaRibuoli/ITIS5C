@@ -102,15 +102,6 @@ ALTER TABLE "Dettaglio_Ordini" ADD FOREIGN KEY ("id_ordine") REFERENCES "Ordini"
 ALTER TABLE "Dettaglio_Ordini" ADD FOREIGN KEY ("id_prodotto") REFERENCES "Prodotti" ("id_prodotto");
 ```
 
-### NON NULL
-
-Sicuramente è opportuno che tutte le colonne che compongo *chiavi primarie* siano impostate a `NOT NULL`. Alcuni database lo impongono direttamente.
-
-Tutte le colonne di una *foreign key* devono essere coerenti alle rispettive chiavi primarie per cui, fatta salva la precedente affermazione, è bene siano impostate a `NOT NULL`.
-
-Per approfondire: *SQL Antipatterns: Avoiding the Pitfalls of Database Programming* di Bill Karwin
-
-Per la logica trivalente ed SQL consultare [Wikipedia](https://en.wikipedia.org/wiki/Three-valued_logic)
 
 ### SQL: interrogazione delle basi di dati
 
@@ -127,3 +118,50 @@ Gli altri due aspetti rigurdano l'uso:
 
 * l'algebra relazionale è **procedurale**, l'SQL è **dichiarativo** (provvede il DBMS ad ottimizzare il processo per ottenere il risultato nel modo più efficiente e veloce)
 * l'SQL offre degli operatori aggregati (COUNT, MIN, MAX, AVG, ecc) che non esistono nell'algebra relazionale ma sono utili nella elaborazione dei dati. 
+
+### NON NULL
+
+Sicuramente è opportuno che tutte le colonne che compongo *chiavi primarie* siano impostate a `NOT NULL`. Alcuni database lo impongono direttamente.
+
+Tutte le colonne di una *foreign key* devono essere coerenti alle rispettive chiavi primarie per cui, fatta salva la precedente affermazione, è bene siano impostate a `NOT NULL`.
+
+Per approfondire: *SQL Antipatterns: Avoiding the Pitfalls of Database Programming* di Bill Karwin
+
+Per la logica trivalente ed SQL consultare [Wikipedia](https://en.wikipedia.org/wiki/Three-valued_logic)
+
+Rivisitiamo la creazione dello schema del database utilizzando il file [A140withNULLs](A140withNULLs.sql) sfruttando la sequnza in apertura:
+
+```
+DROP DATABASE 5c<<cognome>>_test;
+CREATE DATABASE 5c<<cognome>>_test;
+USE 5c<<cognome>>_test;
+```
+Queste istruzioni sono coerenti con il seguente modello logico dove `NN` sta esattamente per **NOT NULL**.
+
+![](A140withNULLs.png)
+
+### INSERT INTO ...
+
+Inserire dati nella base dati tramite una serie di comandi `INSERT`: 
+
+| id_categoria |  descrizione  | 
+|:------------:|:-------------:|
+|       1      |  giocattoli   | 
+|       2      |  libri        | 
+|       3      |  cartoleria   | 
+
+
+impostando un file inizi con:
+
+``` sql
+USE 5c<<cognome>>_test;
+DELETE FROM "Dettaglio_ordini"
+DELETE FROM "Ordini"
+DELETE FROM "Prodotti"
+DELETE FROM "Fornitori"
+DELETE FROM "Clienti"
+DELETE FROM "Categorie"
+INSERT INTO "Categorie" VALUES(1, 'giocattoli');
+INSERT INTO "Categorie" VALUES(2, 'libri);
+INSERT INTO "Categorie" VALUES(3, 'cartoleria');
+```
