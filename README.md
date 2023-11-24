@@ -155,13 +155,13 @@ impostando un file inizi con:
 
 ``` sql
 USE 5c<<cognome>>_test;
-DELETE FROM "Dettaglio_ordini";
-DELETE FROM "Ordini";
-DELETE FROM "Prodotti";
-DELETE FROM "Fornitori";
-DELETE FROM "Clienti";
-DELETE FROM "Categorie";
-INSERT INTO "Categorie" VALUES(1, 'giocattoli');
-INSERT INTO "Categorie" VALUES(2, 'libri);
-INSERT INTO "Categorie" VALUES(3, 'cartoleria');
+DELETE FROM Dettaglio_ordini;
+DELETE FROM Ordini;
+DELETE FROM Prodotti;
+DELETE FROM FornitorI;
+DELETE FROM Clienti;
+DELETE FROM Categorie;
+INSERT INTO Categorie VALUES(1, 'giocattoli');
+INSERT INTO Categorie VALUES(2, 'libri);
+INSERT INTO Categorie VALUES(3, 'cartoleria');
 ```
