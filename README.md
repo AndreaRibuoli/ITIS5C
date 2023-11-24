@@ -155,7 +155,7 @@ impostando un file inizi con:
 
 ``` sql
 USE 5c<<cognome>>_test;
-DELETE FROM Dettaglio_ordini;
+DELETE FROM Dettaglio_Ordini;
 DELETE FROM Ordini;
 DELETE FROM Prodotti;
 DELETE FROM Fornitori;
