@@ -140,9 +140,67 @@ Queste istruzioni sono coerenti con il seguente modello logico dove `NN` sta esa
 
 ![](A140withNULLs.png)
 
+È possibile procedere nel seguente modo:
+
+```
+mysql -h 10.25.0.14 -u <<utente>> -p < A140withNULLs.sql
+```
+
+Successivamente è possibile controllare interattivamente:
+
+```
+$ mysql -h 10.25.0.14 -u <<utente>> -p 
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 12797
+Server version: 10.5.19-MariaDB-0+deb11u2 Debian 11
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+```
+
+Al prompt di **MariaDB** (ex *MySQL*) è possibile impostare 
+il database corrente (comando **use**): 
+
+```
+MariaDB [(none)]> use 5cribuoli_test
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+```
+
+Con il comando **show tables** si potrà verificare la presenza delle
+tabelle.
+
+```
+MariaDB [5cribuoli_test]> show tables;
++--------------------------+
+| Tables_in_5cribuoli_test |
++--------------------------+
+| Categorie                |
+| Clienti                  |
+| Dettaglio_Ordini         |
+| Fornitori                |
+| Ordini                   |
+| Prodotti                 |
++--------------------------+
+6 rows in set (0,001 sec)
+
+MariaDB [5cribuoli_test]>
+```
+
+Così le tabelle sono ovviamente vuote.
+
+
 ### INSERT INTO ...
 
-Inserire dati nella base dati tramite una serie di comandi `INSERT`: 
+Lo scopo ora è utilizzare un diverso script per effettuare gli inserimenti.
+Nel file di esempio che fornisco carico esclusivamente i campi **NOT NULL**.
+
 
 | id_categoria |  descrizione  | 
 |:------------:|:-------------:|
@@ -151,7 +209,10 @@ Inserire dati nella base dati tramite una serie di comandi `INSERT`:
 |       3      |  cartoleria   | 
 
 
-impostando un file inizi con:
+In modo simile al precedente predisponiamo la iniziale cancellazione del contenuto delle tabelle, *ma non la loro struttura*.
+A tal fine si farà uso del verbo `DELETE FROM`.
+Prima degli inserimenti questo opererà la  cancellazione del contenuto delle tabelle (secondo un ordinamento preciso,che **rispetti i vincoli di integrità referenziale imposti**).
+
 
 ``` sql
 USE 5c<<cognome>>_test;
@@ -166,3 +227,4 @@ INSERT INTO Categorie VALUES(2, 'libri);
 INSERT INTO Categorie VALUES(3, 'cartoleria');
 INSERT INTO Fornitori (id_fornitore, ragione_sociale) VALUES(1, 'Pluto srl');
 ```
+

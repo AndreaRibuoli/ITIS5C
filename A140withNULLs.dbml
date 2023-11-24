@@ -15,7 +15,7 @@ Table "Prodotti" {
 
 Table "Fornitori" {
   "id_fornitore" INTEGER [pk, not null]
-  "ragione sociale" VARCHAR(50) [not null]
+  "ragione_sociale" VARCHAR(50) [not null]
   "indirizzo" VARCHAR(30)
   "citta" VARCHAR(20)
   "cap" VARCHAR(5)
@@ -33,7 +33,7 @@ Table "Ordini" {
 
 Table "Clienti" {
   "id_cliente" INTEGER [pk, not null]
-  "ragione sociale" VARCHAR(50) [not null]
+  "ragione_sociale" VARCHAR(50) [not null]
   "indirizzo" VARCHAR(30)
   "citta" VARCHAR(20)
   "cap" VARCHAR(5)
