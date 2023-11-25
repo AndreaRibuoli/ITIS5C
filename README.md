@@ -129,7 +129,7 @@ Per approfondire: *SQL Antipatterns: Avoiding the Pitfalls of Database Programmi
 
 Per la logica trivalente ed SQL consultare [Wikipedia](https://en.wikipedia.org/wiki/Three-valued_logic)
 
-Rivisitiamo la creazione dello schema del database utilizzando il file [A140withNULLs](A140withNULLs.sql) sfruttando la sequEnza in apertura:
+Rivisitiamo la creazione dello schema del database utilizzando il file [A140withNULLs](A140withNULLs.sql) sfruttando la sequenza in apertura:
 
 ```
 DROP DATABASE 5c<<cognome>>_test;
