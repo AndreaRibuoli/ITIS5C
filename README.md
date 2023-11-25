@@ -201,6 +201,7 @@ Così le tabelle sono ovviamente vuote.
 Lo scopo ora è utilizzare un diverso script per effettuare gli inserimenti.
 Nel file di esempio che fornisco carico esclusivamente i campi **NOT NULL**.
 
+**Categaorie**
 
 | id_categoria |  descrizione  | 
 |:------------:|:-------------:|
@@ -208,9 +209,19 @@ Nel file di esempio che fornisco carico esclusivamente i campi **NOT NULL**.
 |       2      |  libri        | 
 |       3      |  cartoleria   | 
 
+**Fornitori**
+
 | id_fornitore | ragione_sociale | indirizzo | citta | cap  | provincia | n_telefono |
 |:------------:|:---------------:|:---------:|:-----:|:----:|:---------:|:----------:|
 |            1 | Pluto srl       | NULL      | NULL  | NULL | NULL      | NULL       |
+
+**Clienti**
+
+| id_cliente| ragione_sociale | indirizzo | citta | cap  | provincia | n_telefono |
+|:---------:|:---------------:|:---------:|:-----:|:----:|:---------:|:----------:|
+|         1 | ITIS Mattei     | NULL      | NULL  | NULL | NULL      | NULL       |
+
+**Prodotti**
 
 | id_prodotto | nome_prodotto | id_categoria | prezzo_acquisto | prezzo_vendita | giacenza | id_fornitore |
 |-------------|---------------|--------------|-----------------|----------------|----------|--------------|
@@ -235,5 +246,7 @@ INSERT INTO Categorie VALUES(2, 'libri');
 INSERT INTO Categorie VALUES(3, 'cartoleria');
 INSERT INTO Fornitori (id_fornitore, ragione_sociale) VALUES(1, 'Pluto srl');
 INSERT INTO Prodotti (id_prodotto, nome_prodotto, id_categoria, id_fornitore) VALUES(1, 'Informatica 3', 2, 1);
+INSERT INTO Clienti (id_cliente, ragione_sociale) VALUES(1, 'ITIS Mattei');
+INSERT INTO Ordini (id_ordine, data_ricezione, id_cliente) VALUES( 1, CURRENT_DATE, 1);
 ```
 
