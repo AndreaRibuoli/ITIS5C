@@ -9,4 +9,4 @@ INSERT INTO Categorie VALUES(1, 'giocattoli');
 INSERT INTO Categorie VALUES(2, 'libri');
 INSERT INTO Categorie VALUES(3, 'cartoleria');
 INSERT INTO Fornitori (id_fornitore, ragione_sociale) VALUES(1, 'Pluto srl');
-INSERT INTO Prodotti (id_prodotto, nome_prodotto, id_categoria, id_fornitore) VALUES(1, 'Corso di Informatica', 2, 1);
+INSERT INTO Prodotti (id_prodotto, nome_prodotto, id_categoria, id_fornitore) VALUES(1, 'Informatica 3', 2, 1);
