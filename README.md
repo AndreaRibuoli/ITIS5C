@@ -235,6 +235,9 @@ Nel file di esempio che fornisco carico esclusivamente i campi **NOT NULL**.
 
 **Dettaglio_Ordini**
 
+| id_ordine | id_prodotto | quantita |
+|:---------:|:-----------:|:--------:|
+|         1 |           1 |       20 |
 
 
 In modo simile al precedente predisponiamo la iniziale cancellazione del contenuto delle tabelle, *ma non la loro struttura*.
