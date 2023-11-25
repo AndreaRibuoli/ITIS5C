@@ -1,5 +1,6 @@
 # Prerequisites
 .DS_Store
+*.log
 *.d
 
 # Object files
