@@ -215,17 +215,26 @@ Nel file di esempio che fornisco carico esclusivamente i campi **NOT NULL**.
 |:------------:|:---------------:|:---------:|:-----:|:----:|:---------:|:----------:|
 |            1 | Pluto srl       | NULL      | NULL  | NULL | NULL      | NULL       |
 
+**Prodotti**
+
+| id_prodotto | nome_prodotto | id_categoria | prezzo_acquisto | prezzo_vendita | giacenza | id_fornitore |
+|-------------|---------------|--------------|-----------------|----------------|----------|--------------|
+|           1 | Informatica 3 |            2 |            NULL |           NULL |     NULL |            1 |
+
 **Clienti**
 
 | id_cliente| ragione_sociale | indirizzo | citta | cap  | provincia | n_telefono |
 |:---------:|:---------------:|:---------:|:-----:|:----:|:---------:|:----------:|
 |         1 | ITIS Mattei     | NULL      | NULL  | NULL | NULL      | NULL       |
 
-**Prodotti**
+**Ordini**
 
-| id_prodotto | nome_prodotto | id_categoria | prezzo_acquisto | prezzo_vendita | giacenza | id_fornitore |
-|-------------|---------------|--------------|-----------------|----------------|----------|--------------|
-|           1 | Informatica 3 |            2 |            NULL |           NULL |     NULL |            1 |
+| id_ordine | data_ricezione | data_evasione | id_cliente | spese_trasporto |
+|:---------:|:--------------:|:-------------:|:----------:|:---------------:|
+|         1 | 2023-11-25     | NULL          |          1 |            NULL |
+
+**Dettaglio_Ordini**
+
 
 
 In modo simile al precedente predisponiamo la iniziale cancellazione del contenuto delle tabelle, *ma non la loro struttura*.
@@ -247,6 +256,6 @@ INSERT INTO Categorie VALUES(3, 'cartoleria');
 INSERT INTO Fornitori (id_fornitore, ragione_sociale) VALUES(1, 'Pluto srl');
 INSERT INTO Prodotti (id_prodotto, nome_prodotto, id_categoria, id_fornitore) VALUES(1, 'Informatica 3', 2, 1);
 INSERT INTO Clienti (id_cliente, ragione_sociale) VALUES(1, 'ITIS Mattei');
-INSERT INTO Ordini (id_ordine, data_ricezione, id_cliente) VALUES( 1, CURRENT_DATE, 1);
+INSERT INTO Ordini (id_ordine, data_ricezione, id_cliente) VALUES( 1, '2023-11-25', 1);
 ```
 
