@@ -208,6 +208,11 @@ Nel file di esempio che fornisco carico esclusivamente i campi **NOT NULL**.
 |       2      |  libri        | 
 |       3      |  cartoleria   | 
 
+| id_fornitore | ragione_sociale | indirizzo | citta | cap  | provincia | n_telefono |
+|:------------:|:---------------:|:---------:|:-----:|:----:|:---------:|:----------:|
+|            1 | Pluto srl       | NULL      | NULL  | NULL | NULL      | NULL       |
+
+
 
 In modo simile al precedente predisponiamo la iniziale cancellazione del contenuto delle tabelle, *ma non la loro struttura*.
 A tal fine si farà uso del verbo `DELETE FROM`.
