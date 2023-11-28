@@ -262,3 +262,50 @@ INSERT INTO Clienti (id_cliente, ragione_sociale) VALUES(1, 'ITIS Mattei');
 INSERT INTO Ordini (id_ordine, data_ricezione, id_cliente) VALUES( 1, '2023-11-25', 1);
 ```
 
+### SELECT
+
+``` sql
+SELECT id_cliente 
+  FROM Ordini o JOIN
+       Dettaglio_Ordini d 
+          ON o.id_ordine=d.id_ordine;
+```
+
+``` sql
+SELECT id_cliente, nome_prodotto
+  FROM Ordini o JOIN Dettaglio_Ordini d ON o.id_ordine=d.id_ordine 
+                JOIN Prodotti p ON d.id_prodotto=p.id_prodotto;
+```
+
+``` sql
+SELECT id_cliente
+  FROM Ordini o1 JOIN Dettaglio_Ordini d1 ON o1.id_ordine=d1.id_ordine 
+                JOIN Prodotti p1 ON d1.id_prodotto=p1.id_prodotto
+  WHERE YEAR(data_evasione) = YEAR(CURRENT_DATE)
+    AND nome_prodotto='P01';
+```
+
+``` sql
+SELECT id_cliente
+  FROM Ordini o2 JOIN Dettaglio_Ordini d2 ON o2.id_ordine=d2.id_ordine 
+                JOIN Prodotti p2 ON d2.id_prodotto=p2.id_prodotto
+  WHERE YEAR(data_evasione) = YEAR(CURRENT_DATE)
+    AND nome_prodotto='P41';
+```
+
+``` sql
+SELECT id_cliente
+  FROM Ordini o1 JOIN Dettaglio_Ordini d1 ON o1.id_ordine=d1.id_ordine 
+                 JOIN Prodotti p1 ON d1.id_prodotto=p1.id_prodotto
+  WHERE YEAR(data_evasione) = YEAR(CURRENT_DATE) AND nome_prodotto='P01'
+    AND id_cliente IN (SELECT id_cliente
+                         FROM Ordini o2 JOIN Dettaglio_Ordini d2 ON o2.id_ordine=d2.id_ordine 
+                                        JOIN Prodotti p2 ON d2.id_prodotto=p2.id_prodotto
+                         WHERE YEAR(data_evasione) = YEAR(CURRENT_DATE) AND nome_prodotto='P41')
+    AND id_cliente NOT IN (SELECT id_cliente
+                             FROM Ordini o3 JOIN Dettaglio_Ordini d3 ON o3.id_ordine=d3.id_ordine 
+                                            JOIN Prodotti p3 ON d3.id_prodotto=p3.id_prodotto
+                             WHERE YEAR(data_evasione) = YEAR(CURRENT_DATE) AND nome_prodotto='P35');
+```
+
+
