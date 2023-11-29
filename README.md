@@ -309,3 +309,11 @@ SELECT id_cliente
 ```
 
 
+``` sql
+SELECT SUM(d.quantita*p.prezzo_vendita) 
+  FROM Dettaglio_Ordini d 
+  JOIN Prodotti p ON d.id_prodotto=p.id_prodotto 
+  JOIN Ordini o ON d.id_ordine = o.id_ordine 
+  WHERE YEAR(data_evasione)= 2023 
+    AND MONTH(data_evasione)=11;
+```
